@@ -1,0 +1,19 @@
+.profile___user__middle{
+    display: flex;
+    padding:20px ;
+    gap: 5px;
+    align-items: center;
+   
+
+}
+.post__box{
+    width: 500px;
+}
+.Post__tag{
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+.Post__tag a{
+    text-decoration: none;
+}

@@ -1,0 +1,15 @@
+.Middle__Post{
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.Middle__Post__img{
+    display: flex;
+    align-items: center;
+}
+.Opinion__button{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
