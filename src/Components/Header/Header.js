@@ -6,6 +6,7 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import { Avatar } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import pro from '../../Images/profileRafsun.jpg'
 
 const Header = () => {
     return (
@@ -31,7 +32,7 @@ const Header = () => {
                     <Nav.Link href='#Home' className='navtext' > <CottageIcon></CottageIcon> <br /> Home</Nav.Link>
                     <Nav.Link href='#News' className='navtext'> <NewspaperIcon></NewspaperIcon> <br /> News</Nav.Link>
                     <Nav.Link href='#Notify' className='navtext'> <NotificationsActiveIcon></NotificationsActiveIcon> <br />Notification</Nav.Link>
-                    <Nav.Link href='#user' className='navtext'><Avatar style={{ width: '24px', height: '24px' }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> User</Nav.Link>
+                    <Nav.Link href='#user' className='navtext'><Avatar style={{ width: '24px', height: '24px' }} alt="Remy Sharp" src={pro} />Rafsun</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>

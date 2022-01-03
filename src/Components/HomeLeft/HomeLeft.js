@@ -1,6 +1,7 @@
 import { Avatar, Box, Divider, Paper, Typography } from '@mui/material';
 import React from 'react';
 import '../../Components/HomeLeft/HomeLeft.css'
+import pro from '../../Images/profileRafsun.jpg'
 
 const HomeLeft = () => {
     return (
@@ -18,7 +19,7 @@ const HomeLeft = () => {
 
             <Paper elevation={3}>
                 <Box>
-                    <Avatar className='profile___user' alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                    <Avatar className='profile___user' alt="Remy Sharp" src={pro} />
                 </Box>
                 <Box>
                     <p style={{ fontWeight: 'bold', marginBottom: 0 }} >Rafsun jani</p>
