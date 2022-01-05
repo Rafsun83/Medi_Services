@@ -6,6 +6,7 @@ import pro from '../../Images/profileRafsun.jpg'
 const HomeLeft = () => {
     return (
         <Box
+            className='Left__home'
             sx={{
                 display: 'flex',
                 flexWrap: 'wrap',

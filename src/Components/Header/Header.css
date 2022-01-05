@@ -2,6 +2,9 @@
     background-color: #ffffff;
     box-shadow: 0 0 5px;
     margin-bottom: 1rem;
+  
+   
+ 
 }
 .Medi__service{
     display: flex;
@@ -27,4 +30,7 @@
    border: 1px;
    height: 35px;
    padding: 10px;
+}
+.profile__link{
+    text-decoration: none !important;
 }

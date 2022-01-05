@@ -1,5 +1,5 @@
-import { Avatar, Box, Button, Divider, Modal, Paper, TextField, Typography } from '@mui/material';
-import React from 'react';
+import { Avatar, Box, Button, Divider, Input, Modal, Paper, TextField, Typography } from '@mui/material';
+import React, { useState } from 'react';
 import '../../Components/HomeMiddle/HomeMiddle.css'
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
@@ -30,18 +30,42 @@ const HomeMiddle = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const [status, setStatus] = useState('')
+    const [image, setImage] = useState(null)
 
-    const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data => {
-        axios.post('http://localhost:5000/UserPost', data)
-            .then(res => {
-                if (res.data.insertedId) {
-                    // alert('added sucessfully')
-                    reset();
+    const handleSubmit = e => {
+        e.preventDefault()
+        const formData = new FormData()
+        formData.append("status", status)
+        formData.append("image", image)
+
+        fetch('http://localhost:5000/UserPost', {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+
+                    e.target.reset()
+                    console.log("added sucessfully")
                 }
             })
-        console.log(data);
+
     }
+
+
+    // const { register, handleSubmit, reset } = useForm();
+    // const onSubmit = data => {
+    //     axios.post('http://localhost:5000/UserPost', data)
+    //         .then(res => {
+    //             if (res.data.insertedId) {
+
+    //                 reset();
+    //             }
+    //         })
+    //     console.log(data);
+    // }
 
     return (
         <Box
@@ -64,19 +88,34 @@ const HomeMiddle = () => {
 
                     <div>
 
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit}>
+                            {/* onSubmit={handleSubmit(onSubmit)} */}
                             <TextField
                                 id="outlined-multiline-static"
                                 label="Your Opinion"
                                 multiline
                                 rows={4}
                                 className='post__box'
-                                onClick={handleOpen}
-                                {...register("Status")}
+                                // onClick={handleOpen}
+                                // {...register("Status")}
+                                onChange={e => setStatus(e.target.value)}
 
 
-                            />
+
+                            >
+
+                            </TextField>
                             {/* <input {...register("firstName")} /> */}
+                            {/* <Input accept="image/*" id="contained-button-file" multiple type="file" >Photo</Input> */}
+                            <Input
+                                accept="image/*"
+
+                                id="contained-button-file"
+                                onChange={e => setImage(e.target.files[0])}
+                                multiple type="file" />
+                            {/* <Button variant="contained" component="span">
+                                Upload
+                            </Button> */}
 
                             <Button type='Submit' >Post</Button>
                         </form>
